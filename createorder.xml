@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <listeners>
+        <listener class-name="io.evershop.listeners.CustomListener"/>
+        <listener class-name="io.evershop.listeners.AnnotationTransformer"/>
+    </listeners>
+    <test name="Register Test With Required Fields">
+        <classes>
+            <class name="io.evershop.tests.RegisterTest">
+                <methods>
+                    <include name="doRegisterNewAccountRequiredFields"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="SignIn Test With Valid Credentials">
+        <classes>
+            <class name="io.evershop.tests.SingInTest">
+                <methods>
+                    <include name="doLoginWithValidCredentials"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Order Test Logged With Three Items">
+        <classes>
+            <class name="io.evershop.tests.OrderTest">
+                <methods>
+                    <include name="makeOrderLoggedWithThreeItems"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>
