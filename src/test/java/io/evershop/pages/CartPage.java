@@ -15,12 +15,16 @@ public class CartPage extends BasePage {
     protected By inputSearch = By.xpath("//div[@class='search-input']/div/div/input");
     protected By linkItemSearch = By.xpath("//div[@class='listing-tem']/div/a");
     protected By qtyProduct = By.name("qty");
-    protected By sizeM = By.xpath("//ul/li/a[text()='M']");
-    protected By sizeL = By.xpath("//ul/li/a[text()='L']");
-    protected By sizeS = By.xpath("//ul/li/a[text()='S']");
-    protected By colorGreen = By.xpath("//ul/li/a[text()='Blue']");
-    protected By colorPink = By.xpath("//ul/li/a[text()='Pink']");
-    protected By colorWhite = By.xpath("//ul/li/a[text()='White']");
+    public By sizeM = By.xpath("//ul/li/a[text()='M']");
+    protected By sizeMSelected = By.xpath("//ul/li[@class='selected']/a[text()='M']");
+    public By sizeL = By.xpath("//ul/li/a[text()='L']");
+    protected By sizeLSelected = By.xpath("//ul/li[@class='selected']/a[text()='L']");
+    public By sizeS = By.xpath("//ul/li/a[text()='S']");
+    protected By sizeSSelected = By.xpath("//ul/li[@class='selected']/a[text()='L']");
+    public By colorGreen = By.xpath("//ul/li/a[text()='Blue']");
+    protected By colorGreenSelected = By.xpath("//ul/li[@class='selected']/a[text()='Blue']");
+    public By colorPink = By.xpath("//ul/li/a[text()='Pink']");
+    public By colorWhite = By.xpath("//ul/li/a[text()='White']");
     protected By addToCartBtn = By.xpath("//button/span[text()='ADD TO CART']");
     protected By closeIconAdd = By.xpath("//div[@class='Toastify__toast-body']/div/a[contains(text(),'Continue Shopping')]");
     protected By goToShopping = By.xpath("//div[@class='Toastify__toast-body']/div/a[contains(text(),'VIEW CART')]");
@@ -60,18 +64,24 @@ public class CartPage extends BasePage {
     public void customizeItems(int number) {
         if (number == 1) {
             click(sizeM);
+            isSelectedCustomItems(sizeM);
             click(colorGreen);
+            isSelectedCustomItems(colorGreen);
         } else if (number == 2) {
             click(sizeL);
+            isSelectedCustomItems(sizeL);
             click(colorPink);
+            isSelectedCustomItems(colorPink);
         } else if (number == 3) {
             click(sizeS);
+            isSelectedCustomItems(sizeS);
             click(colorWhite);
+            isSelectedCustomItems(colorWhite);
         }
     }
 
     public void addToCart() {
-        click(addToCartBtn);
+            click(addToCartBtn);
     }
 
     public void closePopupAdded() {

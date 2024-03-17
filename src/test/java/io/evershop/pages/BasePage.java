@@ -14,12 +14,14 @@ import java.time.Duration;
 public class BasePage {
 
     protected WebDriver driver;
-    WebDriverWait wait;
+    WebDriverWait wait,wait2;
     int timeoutSec = 10;
+    int timeoutSec2 = 1;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSec));
+        wait2 = new WebDriverWait(driver,Duration.ofSeconds(timeoutSec2));
     }
 
     public void setTimeoutSec(int timeoutSec) {
@@ -64,6 +66,14 @@ public class BasePage {
         return true;
     }
 
+    public boolean isSelectedCustomItems(By element){
+        try {
+            wait2.until(ExpectedConditions.attributeToBe(element,"class","selected"));
+        }catch (Exception e){
+            return false;
+        }
+        return true;
+    }
     public void changeIframe(By element) {
         driver.switchTo().frame(find(element));
     }

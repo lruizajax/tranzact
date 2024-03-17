@@ -71,7 +71,6 @@ public class CheckoutPage extends BasePage {
     }
 
     public void choosePaymentMethod() {
-        //actions.moveToElement((driver.findElement(By.xpath("//*[local-name()='svg' and starts-with(@class, 'feather')]")))).click().build().perform();
         actions.moveToElement(find(paymentOption)).click().build().perform();
     }
 

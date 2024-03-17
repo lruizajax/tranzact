@@ -47,7 +47,7 @@ public class BaseTest {
         loginPage = new LoginPage(driver);
         dashboardPage = new DashboardPage(driver);
         cartPage = new CartPage(driver);
-        checkoutPage = new CheckoutPage(driver,actions);
+        checkoutPage = new CheckoutPage(driver, actions);
         js = (JavascriptExecutor) driver;
 
     }
@@ -55,7 +55,7 @@ public class BaseTest {
     @AfterMethod
     public void teardown() {
         Log.info("Closing the driver instance");
-        if(driver!=null){
+        if (driver != null) {
             driver.quit();
         }
     }
